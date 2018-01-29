@@ -1,3 +1,30 @@
-p {
-    color: peachpuff;
+* {
+    border:1px dotted red;
+}
+.container {
+    /* background-image: url('./images/portfolio_assignment.png'); */
+    height: 1000px;
+    width: 970px;
+
+}
+#header {
+    height: 60px;
+    width: 100%;
+    /* background-color: blue;
+    opacity: .5; */
+}
+#mainContent {
+    height: 895px;
+    width: 100%;
+    /* background-color: green;
+    opacity: .5; */
+}
+#footer {
+    height: 50px;
+    width: 100%;
+    /* background-color: red;
+    opacity: .5; */
+}
+#image{
+
 }
