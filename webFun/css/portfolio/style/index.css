@@ -1,0 +1,142 @@
+* {
+    /* border: 1px dotted red; */
+    font-family: Arial, Helvetica, sans-serif;
+}
+.wrapper {
+    background-image: url("./../images/portfolio_assignment.png");
+    background-repeat: no-repeat;
+    height: 1200px;
+    width: 970px;
+    margin: 0 auto;
+}
+.header, .footer {
+    /* opacity: .5; */
+    background-color: lightgray;
+    height: 60px;
+    width: 100%;
+}
+/* .header > * {
+    height: 50px;
+} */
+.header h1 {
+    margin-left:25px;
+    margin-top: 15px;
+    width: 56%;
+    display: inline-block;  
+    vertical-align: baseline;
+    line-height: 40px;
+}
+.header h4 {
+    display:inline-block;
+    vertical-align: middle;
+    margin-bottom: 45px;
+}
+
+.mainContent {
+    /* opacity: .5; */
+    background-color: purple;
+    height: 900px;
+    width: inherit;
+}
+.mainContent > div {
+    background-color: white;
+}
+.footer {
+    /* background-color: aqua; */
+}
+.mainContent img, .rightContent, .bottomContent {
+    display: inline-block;
+    vertical-align: top;
+    /* opacity: .5; */
+    margin-left: 20px;
+    margin-top: 20px;
+}
+.mainContent img {
+    height: 270px;
+    width: 410px;
+    /* background-color: green; */
+}
+.rightContent {
+    height: 270px;
+    width: 485px;
+    /* background-color: green; */
+}
+.rightContent > * {
+    margin-left: 15px;
+}
+
+.rightContent h1 {
+    background-color: gray;
+    margin: 0;
+    padding: 5px 0 5px 20px;
+}
+.rightContent p:last-of-type {
+    text-decoration: underline;
+}
+
+.bottomContent {
+    /* background-color: blue; */
+    height: 560px;
+    width: 290px;
+    /* opacity: .5; */
+}
+.bottomContent h1 {
+    background-color: gray;
+    margin: 0;
+    padding: 15px 0 15px 20px;
+    color: white;
+    font-size: 15pt;
+}
+.bottomContent img:first-of-type {
+    width: inherit;
+    margin: 0;
+    height: 140px;
+}
+.bottomContent p {
+    height: 125px;
+    font-size: 0.9em;
+    padding-left: 10px;
+}
+.bottomContent h2 {
+    margin: 0 0 10px 0;
+    padding: 10px 0 10px 10px;
+    color: white;
+    background-color: gray;
+    
+}
+.bottomContent img {
+    width: 40px;
+    height: 40px;
+    display: inline-block;
+    vertical-align: top;
+    margin: 0 0 10px 10px
+}
+.bottomContent button {
+    background-color: green;
+    color: white;
+    border-radius: 10px;
+    padding: 5px;
+    box-shadow: 1px 1px 3px black;
+    margin: 0 auto;
+    display: block;
+}
+.footer h4 {
+    margin: 0 auto 15px;
+    width: 26%;
+}
+.footer p {
+    margin: 0;
+    text-decoration: underline;
+}
+.footer img, .footer p {
+    display: inline-block;
+    vertical-align: top;
+    margin-right: 5px;
+}
+.footer img {
+    height: 20px;
+    width: 20px;
+}
+.footer img:first-of-type {
+    margin-left: 300px;
+}

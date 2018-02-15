@@ -1,0 +1,56 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Login Reg</title>
+</head>
+<body>
+    <h1>Login Registration</h1>
+    <fieldset>
+        <legend>Registration</legend>
+        <form action="/register" method='post'>
+            <p>
+                First Name: <input type="text" name='first_name'>
+            </p>
+            <p>
+                Last Name: <input type="text" name='last_name'>
+            </p>
+            <p>
+                Email: <input type="text" name='email'>
+            </p>
+            <p>
+                Password: <input type="text" name='password' value='password'>
+            </p>
+            <p>
+                Password Confirmation: <input type="password" name='password_confirmation'>
+            </p>
+            <p>
+                <input type="submit" value='add user'>
+            </p>
+        </form>
+        {{ error }}
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+            {% for message in messages %}
+                <p>{{message}}</p>
+            {% endfor %}
+            {% endif %}
+        {% endwith %}
+    </fieldset>
+    <fieldset>
+        <legend>Login</legend>
+        <form action="/login" method="post">
+            <p>
+                Email: <input type="text" name="email" id="">
+            </p>
+            <p>
+                Password: <input type="text" name="password" id="">
+            </p>
+            <p>
+                <input type="submit" value="login">
+            </p>
+        </form>
+    </fieldset>
+</body>
+</html>
