@@ -11,6 +11,7 @@
         <% for (quote in all_quotes) { %>
             <h2>Name: <%= all_quotes[quote].name %></h2>
             <p>Quote: <%= all_quotes[quote].quote %></p>
+            <p>Age: <%= all_quotes[quote].get('age') %></p>
             <%= all_quotes[quote].createdAt.toDateString() %>
             <hr>
         <% } %>

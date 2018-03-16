@@ -19,11 +19,13 @@ mongoose.model('Quote', QuoteSchema);
 // expose the schema to the scope of page
 const Quote = mongoose.model('Quote');
 
-app.use(express.static(path.join(__dirname, './static/')));
+// app.use(express.static(path.join(__dirname, './static/')));
+app.use(express.static(path.join(__dirname, './public/dist')));
+// app.use(express.static(__dirname +  './public/dist'));
 app.use(bodyParser.urlencoded({extend: true}));
 
-app.set('views', path.join(__dirname, './views/'));
-app.set('view engine', 'ejs');
+// app.set('views', path.join(__dirname, './views/'));
+// app.set('view engine', 'ejs');
 
 app.get('/', function(req, res){
     res.render('index');
@@ -40,7 +42,8 @@ app.get('/quotes', function(req, res){
         if(err){
             console.log('something went wrong');
         } else {
-            console.log(_quotes[_quotes.length-1].createdAt);
+            console.log('line 43', _quotes[1].get('age'));
+            console.log('line 44', _quotes[0]);
             res.render('success', {all_quotes: _quotes});
         }
     })
@@ -49,11 +52,13 @@ app.get('/quotes', function(req, res){
 app.post('/quotes', (req, res)=>{
     // console.log('this in a arrow function', this);
     // create the quote
-    let quote = new Quote()
+    let quote = new Quote({age:21});
 
     quote.name = req.body.name;
     quote.quote = req.body.quote;
-    quote.age = 21;
+    // quote.age = 21;
+
+    // console.log(quote)
 
     quote.save(function(err){
         if(err){
