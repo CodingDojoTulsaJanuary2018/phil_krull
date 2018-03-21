@@ -1,0 +1,15 @@
+<p>
+  deer-new works!
+</p>
+{{ deer | json}}
+
+<form (submit)='addDeer()'>
+  <p>Name: <input type="text" name="name" [(ngModel)] = 'deer.name' id=""></p>
+  <p>Age: <input type="number" name="age" [(ngModel)] = 'deer.age' id=""></p>
+  <p>Gender: <input type="radio" name="gender" [(ngModel)] = 'deer.gender' value='M' id="">Male <input type="radio" name="gender" [(ngModel)] = 'deer.gender' value='F' id="">Female</p>
+  <input type="submit" value="Add Deer">
+</form>
+
+<div *ngIf='errors'>
+  <p>Form has errors</p>
+</div>

@@ -1,0 +1,14 @@
+<table *ngIf='deer'>
+  <tr>
+    <th>Name</th>
+    <th>Age</th>
+    <th>Gender</th>
+    <th># of legs</th>
+  </tr>
+  <tr>
+    <td><a [routerLink]="['/deer', deer.deer._id, 'edit']">Edit</a></td>
+    <td>{{ deer.deer.age }}</td>
+    <td>{{ deer.deer.gender }}</td>
+    <td>{{ deer.deer.legs }}</td>
+  </tr>
+</table>

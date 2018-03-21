@@ -1,0 +1,8 @@
+<h1>Update deer</h1>
+<form (submit)='updateDeer(deer._id)' *ngIf='deer'>
+    <p>Name: <input type="text" name="name" [(ngModel)] = 'deer.name' id=""></p>
+    <p>Age: <input type="number" name="age" [(ngModel)] = 'deer.age' id=""></p>
+    <p>Gender: <input type="radio" name="gender" [(ngModel)] = 'deer.gender' value='M' id="">Male <input type="radio" name="gender" [(ngModel)] = 'deer.gender' value='F' id="">Female</p>
+    <p># of Legs: <input type="number" name="legs" [(ngModel)] = 'deer.legs' id=""></p>
+    <input type="submit" value="Update Deer">
+  </form>

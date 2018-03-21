@@ -1,0 +1,16 @@
+<table *ngIf='deers'>
+  <tr>
+    <th>Name</th>
+    <th>Age</th>
+    <th>Gender</th>
+    <th># of legs</th>
+    <th>Actions</th>
+  </tr>
+  <tr *ngFor='let d of deers.deer'>
+    <td><a [routerLink]="['/deer', d._id]">{{ d.name }}</a></td>
+    <td>{{ d.age }}</td>
+    <td>{{ d.gender }}</td>
+    <td>{{ d.legs }}</td>
+    <td><a [routerLink]="['/deer', d._id, 'edit']">Edit</a> | <button (click)='deleteDeer(d._id)'>Delete</button></td>
+  </tr>
+</table>
