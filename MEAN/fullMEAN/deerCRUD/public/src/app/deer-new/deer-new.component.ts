@@ -10,7 +10,9 @@ import { Router } from '@angular/router';
 })
 export class DeerNewComponent implements OnInit {
   deer: Deer = new Deer();
-  errors: Boolean = false;
+  errors: String[];
+  // or
+  err: Array<String>;
 
   constructor(private _dService: DeerService, private _router: Router) { }
 
@@ -24,7 +26,7 @@ export class DeerNewComponent implements OnInit {
         this.deer = new Deer();
         this._router.navigate(['deer']);
       } else {
-        this.errors = true;
+        this.errors = result['errors'];
         console.log(result['errors']);
       }
     });

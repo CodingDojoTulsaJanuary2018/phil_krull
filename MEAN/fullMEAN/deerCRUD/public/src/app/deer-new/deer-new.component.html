@@ -11,5 +11,5 @@
 </form>
 
 <div *ngIf='errors'>
-  <p>Form has errors</p>
+  <p *ngFor='let err of errors'>{{ err }}</p>
 </div>

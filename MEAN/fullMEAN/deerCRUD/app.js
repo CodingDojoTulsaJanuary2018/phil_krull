@@ -48,9 +48,12 @@ app.post('/deers', (req, res)=>{
     const newDeer = new Deer(req.body);
     newDeer.save((err, deer)=>{
         if(err){
-            console.log(err);
-            
-            res.json({message: 'error', errors: err.errors});
+            // build an array of errors and send to client
+            let errors = [];
+            for(let key in err.errors) {
+                errors.push(err.errors[key].message);
+            }
+            res.json({message: 'error', errors: errors});
         } else {
             console.log('line 52 success', deer);
             res.json({messsage: 'success', deer: deer});
