@@ -1,7 +1,6 @@
 package com.pkrull.planets.models;
 
 import java.util.Date;
-import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -9,48 +8,42 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
 import javax.persistence.Table;
-import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
-@Table(name="planets")
-public class Planet {
+@Table(name="moons")
+public class Moon {
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@GeneratedValue
 	private Long id;
 	@Column
 	@Size(min=3, message="Name must contain at least 3 characters!")
 	private String name;
-	@Column
-	@Size(min=3, message="Size must contain at least 3 characters!")
-	private String size;
-	@Column
-	@NotNull(message="Mass is required!")
-	private Long mass;
-	@Column(updatable=false)
+
+	@ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name="planet_id")
+	private Planet planet;
+	
     @DateTimeFormat(pattern = "MM/dd/yyyy HH:mm:ss")
     private Date createdAt;
     @Column
     @DateTimeFormat(pattern = "MM/dd/yyyy HH:mm:ss")
     private Date updatedAt;
-    
-    @OneToMany(mappedBy="planet", fetch = FetchType.LAZY)
-    private List<Moon> moons;
 
-	public Planet() {
+	public Moon() {
 		// TODO Auto-generated constructor stub
 	}
 	
-	public Planet(String name, String size, Long mass) {
+	public Moon(String name, Planet planet) {
 		this.name = name;
-		this.size = size;
-		this.mass = mass;
+		this.planet = planet;
 	}
 	
 	@PrePersist
@@ -78,20 +71,12 @@ public class Planet {
 		this.name = name;
 	}
 
-	public String getSize() {
-		return size;
+	public Planet getPlanet() {
+		return planet;
 	}
 
-	public void setSize(String size) {
-		this.size = size;
-	}
-
-	public Long getMass() {
-		return mass;
-	}
-
-	public void setMass(Long mass) {
-		this.mass = mass;
+	public void setPlanet(Planet planet) {
+		this.planet = planet;
 	}
 
 	public Date getCreatedAt() {
@@ -108,14 +93,6 @@ public class Planet {
 
 	public void setUpdatedAt(Date updatedAt) {
 		this.updatedAt = updatedAt;
-	}
-
-	public List<Moon> getMoons() {
-		return moons;
-	}
-
-	public void setMoons(List<Moon> moons) {
-		this.moons = moons;
 	}
 
 }
