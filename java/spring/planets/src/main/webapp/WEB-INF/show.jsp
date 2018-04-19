@@ -24,7 +24,7 @@
 	<h2>Add a moon</h2>
 	<form:errors path="moon.*" cssClass="errors"></form:errors>
 <!-- ... -->
-	<form:form method="POST" action="/planets/${planet.id}/addMoon" modelAttribute="moon">
+	<form:form method="POST" action="/planets/${planet.id}/addMoon" modelAttribute="newMoon">
 	<p>
 	    <form:label path="name">Name:
 	    <%-- <form:errors path="name"/> --%>

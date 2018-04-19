@@ -61,7 +61,7 @@ public class PlanetController {
 	@GetMapping("/planets/{id}")
 	public String showPlanet(@PathVariable("id")Long id, Model model) {
 		
-		model.addAttribute("moon", new Moon());
+		model.addAttribute("newMoon", new Moon());
 		// get a planet based on id
 		Planet planet = pService.getPlanet(id);
 		model.addAttribute("planet", planet);
@@ -70,14 +70,15 @@ public class PlanetController {
 	
 	// add a moon to a planet
 	@PostMapping("/planets/{id}/addMoon")
-	public String addMoon(@Valid @ModelAttribute("moon")Moon moon, BindingResult result, RedirectAttributes rAttr, @PathVariable("id")Long id, Model model) {
+	public String addMoon(@Valid @ModelAttribute("moon")Moon newMoon, BindingResult result, RedirectAttributes rAttr, @PathVariable("id")Long id, Model model) {
 		Planet planet = pService.getPlanet(id);
 		if(result.hasErrors()) {
 			model.addAttribute("planet", planet);
 			return "show.jsp";
 		} else {
 			// add the moon
-			mService.addMoon(planet, moon);
+			mService.addMoon(planet, newMoon);
+			System.out.println(newMoon.getId());
 			rAttr.addFlashAttribute("success", "That's a space station");
 			return "redirect:/planets/" + id;
 		}
